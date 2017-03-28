@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Akka.Actor;
+﻿using Akka.Actor;
+using Akka.Util.Internal;
+using AkkaNetNeuralNet.Core.Normalisation;
+using C = System.Console;
 
 namespace AkkaNetNeuralNet.Console
 {
@@ -11,8 +9,21 @@ namespace AkkaNetNeuralNet.Console
     {
         static void Main(string[] args)
         {
+            var trainingData = DummySource.GetTrainingData();
+
+            ConsoleHelper.PrintDogProfileHeader();
+            trainingData.ForEach(ConsoleHelper.Print);
+
+            C.WriteLine("Normalising...");
+            var normalisedTrainingData = trainingData.Normalise();
+            ConsoleHelper.PrintDogProfileHeader();
+            normalisedTrainingData.ForEach(ConsoleHelper.Print);
+
             var system = ActorSystem.Create("AkkaNetNeuralNet");
             // var topLevel = system.ActorOf()
+            system.Terminate();
+
+            C.ReadLine();
         }
     }
 }

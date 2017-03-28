@@ -1,26 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AkkaNetNeuralNet.Core.Model
+﻿namespace AkkaNetNeuralNet.Core.Model
 {
     public class DogProfile : IIndependentExpectancyVariable, IDependentExpectancyVariable
     {
-        public DogProfile(int ageAtDeath, Sex sex, Locale locale, decimal adultBodymass, decimal householdIncome)
-        {
-            AgeAtDeath = ageAtDeath;
-            Sex = sex;
-            Locale = locale;
-            AdultBodymass = adultBodymass;
-            HouseholdIncome = householdIncome;
-        }
-
-        public int AgeAtDeath { get; }
-        public Sex Sex { get; }
-        public Locale Locale { get; }
-        public decimal AdultBodymass { get; }
-        public decimal HouseholdIncome { get; }
+        public decimal AgeAtDeath { get; set; }
+        public Sex Sex { get; set; }
+        public Locale Locale { get; set; }
+        public decimal AdultBodymass { get; set; }
+        public decimal HouseholdIncome { get; set; }
     }
 }
