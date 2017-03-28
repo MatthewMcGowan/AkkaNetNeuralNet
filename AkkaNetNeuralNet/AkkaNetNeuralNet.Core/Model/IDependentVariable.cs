@@ -1,6 +1,6 @@
 namespace AkkaNetNeuralNet.Core.Model
 {
-    public interface IDependentExpectancyVariable
+    public interface IDependentVariable
     {
         decimal AgeAtDeath { get; }
     }

@@ -1,6 +1,6 @@
 namespace AkkaNetNeuralNet.Core.Model
 {
-    public interface IIndependentExpectancyVariable
+    public interface IIndependentVariable
     {
         Sex Sex { get; }
         Locale Locale { get; }

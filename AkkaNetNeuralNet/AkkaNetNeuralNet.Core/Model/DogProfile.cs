@@ -1,6 +1,6 @@
 ﻿namespace AkkaNetNeuralNet.Core.Model
 {
-    public class DogProfile : IIndependentExpectancyVariable, IDependentExpectancyVariable
+    public class DogProfile : IIndependentVariable, IDependentVariable
     {
         public decimal AgeAtDeath { get; set; }
         public Sex Sex { get; set; }
