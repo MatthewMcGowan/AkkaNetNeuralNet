@@ -57,6 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\DogProfile.cs" />
+    <Compile Include="Model\IDependentExpectancyVariable.cs" />
+    <Compile Include="Model\IIndependentExpectancyVariable.cs" />
+    <Compile Include="Model\Locale.cs" />
+    <Compile Include="Model\Sex.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
