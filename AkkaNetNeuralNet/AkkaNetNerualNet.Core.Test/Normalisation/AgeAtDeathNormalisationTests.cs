@@ -67,6 +67,21 @@ namespace AkkaNetNerualNet.Core.Test.Normalisation
             Assert.AreEqual(0.25, age);
         }
 
+        /// <summary>
+        /// If Min == Max, divide by zero error.
+        /// What this really means though is all data has same value, so not useful for prediction.
+        /// //TODO Consider how to handle this case, given this is the dependent variable.
+        /// </summary>
+        [Test]
+        public void NormaliseAges_AllAgesAreSameValue_NormaliseToHalf()
+        {
+            _data.ForEach(x => x.AgeAtDeath = 2);
+
+            var result = _data.NormaliseAges();
+
+            Assert.IsTrue(result.All(x => x.AgeAtDeath == 0.5m));
+        }
+
         private IEnumerable<DogProfile> SetUpData()
         {
             return new List<DogProfile>
