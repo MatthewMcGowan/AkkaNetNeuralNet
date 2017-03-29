@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actors\AgeMassIncomePerceptronActor.cs" />
     <Compile Include="Helpers\DogProfileHelpers.cs" />
     <Compile Include="Model\DogProfile.cs" />
     <Compile Include="Model\IDependentVariable.cs" />
