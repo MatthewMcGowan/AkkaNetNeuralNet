@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AkkaNetNeuralNet.Core.Model;
 
 namespace AkkaNetNeuralNet.Core.Normalisation
@@ -12,7 +8,10 @@ namespace AkkaNetNeuralNet.Core.Normalisation
         public static IEnumerable<DogProfile> Normalise(this IEnumerable<DogProfile> profiles)
         {
             return profiles
-                .NormaliseAges();
+                .NormaliseAges()
+                .NormaliseMasses();
+
+            //TODO: Effects encoding currently encapsulated in type. Inconsistant.
         }
     }
 }

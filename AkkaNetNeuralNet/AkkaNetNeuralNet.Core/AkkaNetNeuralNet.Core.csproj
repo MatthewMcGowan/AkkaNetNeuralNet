@@ -63,6 +63,7 @@
     <Compile Include="Model\IIndependentVariable.cs" />
     <Compile Include="Model\Locale.cs" />
     <Compile Include="Model\Sex.cs" />
+    <Compile Include="Normalisation\AdultBodymassNormalisation.cs" />
     <Compile Include="Normalisation\AgeAtDeathNormalisation.cs" />
     <Compile Include="Normalisation\Normalisation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

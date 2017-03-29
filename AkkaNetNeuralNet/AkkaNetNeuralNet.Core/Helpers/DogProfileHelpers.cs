@@ -9,5 +9,10 @@ namespace AkkaNetNeuralNet.Core.Helpers
             return new DogProfile(updatedValue, dogProfile.Sex, dogProfile.Locale, dogProfile.AdultBodymass,
                 dogProfile.HouseholdIncome);
         }
+
+        public static DogProfile UpdateAdultBodyMass(DogProfile dogProfile, decimal updatedValue)
+        {
+            return new DogProfile(dogProfile.AgeAtDeath, dogProfile.Sex, dogProfile.Locale, updatedValue, dogProfile.HouseholdIncome);
+        }
     }
 }

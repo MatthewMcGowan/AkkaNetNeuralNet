@@ -6,6 +6,10 @@ using NUnit.Framework;
 
 namespace AkkaNetNerualNet.Core.Test.Helpers
 {
+    /// <summary>
+    /// Note: This approach results in a lot of testing boilerplate. 
+    /// Should figure out a way to refactor this without using a bunch of reflection.
+    /// </summary>
     [TestFixture]
     public class DogProfileHelpersTests
     {
@@ -48,6 +52,38 @@ namespace AkkaNetNerualNet.Core.Test.Helpers
             var updated = DogProfileHelpers.UpdateAgeAtDeath(_original, 100);
 
             Assert.AreEqual(originalAge, _original.AgeAtDeath);
+        }
+
+        [Test]
+        public void UpdateAdultBodyMass_CorrectlyUpdatesValue()
+        {
+            var updated = DogProfileHelpers.UpdateAdultBodyMass(_original, 100);
+
+            Assert.AreEqual(100, updated.AdultBodymass);
+        }
+
+        [Test]
+        public void UpdateAdultBodyMass_OtherValuesUnaffected()
+        {
+            var updated = DogProfileHelpers.UpdateAdultBodyMass(_original, 100);
+
+            Assert.AreEqual(_original.AgeAtDeath, updated.AgeAtDeath);
+            Assert.AreEqual(_original.Sex, updated.Sex);
+            Assert.AreEqual(_original.Locale, updated.Locale);
+            Assert.AreEqual(_original.HouseholdIncome, updated.HouseholdIncome);
+        }
+
+        /// <summary>
+        /// Perhaps a silly test, but documents.
+        /// </summary>
+        [Test]
+        public void UpdateAdultBodyMass_OriginalObjectNotMutated()
+        {
+            decimal originalMass = _original.AdultBodymass;
+
+            var updated = DogProfileHelpers.UpdateAdultBodyMass(_original, 100);
+
+            Assert.AreEqual(originalMass, _original.AdultBodymass);
         }
     }
 }
