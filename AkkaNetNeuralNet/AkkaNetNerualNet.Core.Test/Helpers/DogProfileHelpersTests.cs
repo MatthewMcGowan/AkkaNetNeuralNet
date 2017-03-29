@@ -36,7 +36,7 @@ namespace AkkaNetNerualNet.Core.Test.Helpers
             var updated = DogProfileHelpers.UpdateAgeAtDeath(_original, 100);
 
             Assert.AreEqual(_original.Sex, updated.Sex);
-            Assert.AreEqual(_original.Locale, updated.Locale);
+            Assert.AreEqual(_original.Breed, updated.Breed);
             Assert.AreEqual(_original.AdultBodymass, updated.AdultBodymass);
             Assert.AreEqual(_original.HouseholdIncome, updated.HouseholdIncome);
         }
@@ -69,7 +69,7 @@ namespace AkkaNetNerualNet.Core.Test.Helpers
 
             Assert.AreEqual(_original.AgeAtDeath, updated.AgeAtDeath);
             Assert.AreEqual(_original.Sex, updated.Sex);
-            Assert.AreEqual(_original.Locale, updated.Locale);
+            Assert.AreEqual(_original.Breed, updated.Breed);
             Assert.AreEqual(_original.HouseholdIncome, updated.HouseholdIncome);
         }
 

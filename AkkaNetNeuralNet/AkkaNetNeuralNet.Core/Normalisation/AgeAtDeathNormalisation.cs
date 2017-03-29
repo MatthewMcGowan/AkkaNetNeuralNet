@@ -20,7 +20,7 @@ namespace AkkaNetNeuralNet.Core.Normalisation
         {
             decimal age = (profile.AgeAtDeath - min) / (max - min);
 
-            return new DogProfile(age, profile.Sex, profile.Locale, profile.AdultBodymass, profile.HouseholdIncome);
+            return new DogProfile(age, profile.Sex, profile.Breed, profile.AdultBodymass, profile.HouseholdIncome);
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace AkkaNetNeuralNet.Core.Normalisation
         /// <returns></returns>
         private static IEnumerable<DogProfile> EqualityCase(IEnumerable<DogProfile> profiles)
         {
-            DogProfile NormaliseToAvg(DogProfile p) => new DogProfile(0.5m, p.Sex, p.Locale, p.AdultBodymass, p.HouseholdIncome);
+            DogProfile NormaliseToAvg(DogProfile p) => new DogProfile(0.5m, p.Sex, p.Breed, p.AdultBodymass, p.HouseholdIncome);
 
             return profiles.Select(x => NormaliseToAvg(x));
         }

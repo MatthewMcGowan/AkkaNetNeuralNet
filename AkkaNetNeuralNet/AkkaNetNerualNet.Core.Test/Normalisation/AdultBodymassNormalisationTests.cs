@@ -36,7 +36,7 @@ namespace AkkaNetNerualNet.Core.Test.Normalisation
                 x.AgeAtDeath == y.AgeAtDeath &&
                 x.Sex == y.Sex &&
                 x.HouseholdIncome == y.HouseholdIncome &&
-                x.Locale == y.Locale;
+                x.Breed == y.Breed;
 
             Assert.IsTrue(_data.All(d => result.Any(r => OtherFieldEquality(d, r))));
         }

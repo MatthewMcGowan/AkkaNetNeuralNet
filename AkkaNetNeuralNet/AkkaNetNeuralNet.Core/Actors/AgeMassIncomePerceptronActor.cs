@@ -9,16 +9,18 @@ namespace AkkaNetNeuralNet.Core.Actors
     {
         private readonly Random _rnd;
         private readonly IActorRef _outputTarget;
+        private readonly decimal _alpha;
 
         private decimal _massWeight;
         private decimal _incomeWeight;
         private decimal _bias;
 
 
-        public AgeMassIncomePerceptronActor(int randomSeed, IActorRef outputTarget)
+        public AgeMassIncomePerceptronActor(int randomSeed, IActorRef outputTarget, decimal trainingAlpha)
         {
             _rnd = new Random(randomSeed);
             _outputTarget = outputTarget;
+            _alpha = trainingAlpha;
 
             InitialiseWeights();
 
@@ -33,12 +35,13 @@ namespace AkkaNetNeuralNet.Core.Actors
 
         private void Train(IDogProfile m)
         {
-            throw new NotImplementedException();
+            decimal output = Output(m);
+
         }
 
-        public static Props CreateProps(int randomSeed, IActorRef outputTarget)
+        public static Props CreateProps(int randomSeed, IActorRef outputTarget, decimal trainingAlpha)
         {
-            return Props.Create(() => new AgeMassIncomePerceptronActor(randomSeed, outputTarget));
+            return Props.Create(() => new AgeMassIncomePerceptronActor(randomSeed, outputTarget, trainingAlpha));
         }
 
         private decimal Output(IIndependentVariable m)
@@ -48,17 +51,17 @@ namespace AkkaNetNeuralNet.Core.Actors
 
         private void InitialiseWeights()
         {
-            decimal high = 0.01m;
-            decimal low = -0.01m;
+            const decimal high = 0.01m;
+            const decimal low = -0.01m;
 
-            decimal genWeight()
+            decimal GenWeight()
             {
                 return (high - low) * (decimal)_rnd.NextDouble() + low;
             }
 
-            _massWeight = genWeight();
-            _incomeWeight = genWeight();
-            _bias = genWeight();
+            _massWeight = GenWeight();
+            _incomeWeight = GenWeight();
+            _bias = GenWeight();
         }
     }
 }
