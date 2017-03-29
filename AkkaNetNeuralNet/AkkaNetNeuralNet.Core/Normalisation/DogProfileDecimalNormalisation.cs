@@ -7,7 +7,7 @@ namespace AkkaNetNeuralNet.Core.Normalisation
 {
     public static class DogProfileDecimalNormalisation
     {
-        public static IEnumerable<DogProfile> Normalise(IEnumerable<DogProfile> profiles, 
+        public static IEnumerable<DogProfile> Normalise(this IEnumerable<DogProfile> profiles, 
             Func<DogProfile, decimal> propertyAccessorFunc,
             Func<DogProfile, decimal, DogProfile> propertyUpdateInFunc)
         {

@@ -12,7 +12,14 @@ namespace AkkaNetNeuralNet.Core.Helpers
 
         public static DogProfile UpdateAdultBodyMass(DogProfile dogProfile, decimal updatedValue)
         {
-            return new DogProfile(dogProfile.AgeAtDeath, dogProfile.Sex, dogProfile.Breed, updatedValue, dogProfile.HouseholdIncome);
+            return new DogProfile(dogProfile.AgeAtDeath, dogProfile.Sex, dogProfile.Breed, updatedValue,
+                dogProfile.HouseholdIncome);
+        }
+
+        public static DogProfile UpdateHouseholdIncome(DogProfile dogProfile, decimal updatedValue)
+        {
+            return new DogProfile(dogProfile.AgeAtDeath, dogProfile.Sex, dogProfile.Breed, dogProfile.AdultBodymass,
+                updatedValue);
         }
     }
 }

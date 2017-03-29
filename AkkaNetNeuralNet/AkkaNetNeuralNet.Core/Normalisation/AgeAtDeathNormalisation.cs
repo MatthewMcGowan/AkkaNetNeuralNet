@@ -8,8 +8,7 @@ namespace AkkaNetNeuralNet.Core.Normalisation
     {
         public static IEnumerable<DogProfile> NormaliseAges(this IEnumerable<DogProfile> profiles)
         {
-            return DogProfileDecimalNormalisation.Normalise(profiles, x => x.AgeAtDeath,
-                DogProfileHelpers.UpdateAgeAtDeath);
+            return profiles.Normalise(x => x.AgeAtDeath, DogProfileHelpers.UpdateAgeAtDeath);
         }
     }
 }
