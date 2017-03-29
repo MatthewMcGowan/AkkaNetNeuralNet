@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Akka.Actor;
 using AkkaNetNeuralNet.Core.Model;
 
 namespace AkkaNetNeuralNet.Core.Actors
 {
-    public class AgeMassIncomePerceptronActor : ReceiveActor
+    public class MassIncomePerceptronActor : ReceiveActor
     {
         private readonly Random _rnd;
         private readonly IActorRef _outputTarget;
@@ -16,7 +15,7 @@ namespace AkkaNetNeuralNet.Core.Actors
         private decimal _bias;
 
 
-        public AgeMassIncomePerceptronActor(int randomSeed, IActorRef outputTarget, decimal trainingAlpha)
+        public MassIncomePerceptronActor(int randomSeed, IActorRef outputTarget, decimal trainingAlpha)
         {
             _rnd = new Random(randomSeed);
             _outputTarget = outputTarget;
@@ -35,13 +34,18 @@ namespace AkkaNetNeuralNet.Core.Actors
 
         private void Train(IDogProfile m)
         {
-            decimal output = Output(m);
+            decimal delta = Output(m) - m.AgeAtDeath;
+           
+            decimal WeightAdjustment(decimal input) => _alpha * delta * input;
 
+            _massWeight -= WeightAdjustment(m.AdultBodymass);
+            _incomeWeight -= WeightAdjustment(m.HouseholdIncome);
+            _bias -= WeightAdjustment(1);
         }
 
         public static Props CreateProps(int randomSeed, IActorRef outputTarget, decimal trainingAlpha)
         {
-            return Props.Create(() => new AgeMassIncomePerceptronActor(randomSeed, outputTarget, trainingAlpha));
+            return Props.Create(() => new MassIncomePerceptronActor(randomSeed, outputTarget, trainingAlpha));
         }
 
         private decimal Output(IIndependentVariable m)
