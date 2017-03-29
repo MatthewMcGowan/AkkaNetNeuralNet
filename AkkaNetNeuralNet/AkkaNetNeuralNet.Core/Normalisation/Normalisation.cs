@@ -9,7 +9,8 @@ namespace AkkaNetNeuralNet.Core.Normalisation
         {
             return profiles
                 .NormaliseAges()
-                .NormaliseMasses();
+                .NormaliseMasses()
+                .NormaliseIncomes();
 
             //TODO: Effects encoding currently encapsulated in type. Inconsistant.
         }

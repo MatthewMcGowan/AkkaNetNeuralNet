@@ -6,7 +6,7 @@ namespace AkkaNetNeuralNet.Core.Normalisation
 {
     public static class ObjectPropertyNormalisation
     {
-        public static IEnumerable<T> Normalise<T>(this IEnumerable<T> profiles, 
+        public static IEnumerable<T> NormaliseProperty<T>(this IEnumerable<T> profiles, 
             Func<T, decimal> propertyAccessorFunc,
             Func<T, decimal, T> propertyUpdateInFunc)
         {

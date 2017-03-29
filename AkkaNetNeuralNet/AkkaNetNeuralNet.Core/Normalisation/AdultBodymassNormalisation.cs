@@ -8,7 +8,7 @@ namespace AkkaNetNeuralNet.Core.Normalisation
     {
         public static IEnumerable<DogProfile> NormaliseMasses(this IEnumerable<DogProfile> profiles)
         {
-            return profiles.Normalise(x => x.AdultBodymass, DogProfileHelpers.UpdateAdultBodyMass);
+            return profiles.NormaliseProperty(x => x.AdultBodymass, DogProfileHelpers.UpdateAdultBodyMass);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace AkkaNetNeuralNet.Core.Normalisation
     {
         public static IEnumerable<DogProfile> NormaliseIncomes(this IEnumerable<DogProfile> profiles)
         {
-            return profiles.Normalise(x => x.HouseholdIncome, DogProfileHelpers.UpdateHouseholdIncome);
+            return profiles.NormaliseProperty(x => x.HouseholdIncome, DogProfileHelpers.UpdateHouseholdIncome);
         }
     }
 }
