@@ -56,8 +56,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\DogProfileHelpers.cs" />
     <Compile Include="Model\DogProfile.cs" />
     <Compile Include="Model\IDependentVariable.cs" />
+    <Compile Include="Model\IDogProfile.cs" />
     <Compile Include="Model\IIndependentVariable.cs" />
     <Compile Include="Model\Locale.cs" />
     <Compile Include="Model\Sex.cs" />

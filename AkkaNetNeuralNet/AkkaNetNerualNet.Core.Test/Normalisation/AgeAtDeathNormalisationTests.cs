@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Akka.Util.Internal;
+using AkkaNetNerualNet.Core.Test.TestData;
 using AkkaNetNeuralNet.Core.Model;
 using AkkaNetNeuralNet.Core.Normalisation;
 using NUnit.Framework;
+
+using D = AkkaNetNeuralNet.Core.Helpers.DogProfileHelpers;
 
 namespace AkkaNetNerualNet.Core.Test.Normalisation
 {
@@ -18,7 +17,7 @@ namespace AkkaNetNerualNet.Core.Test.Normalisation
         [SetUp]
         public void SetUp()
         {
-            _data = SetUpData();
+            _data = DogProfileTestData.GetTestDogProfiles();
         }
 
         [Test]
@@ -75,21 +74,9 @@ namespace AkkaNetNerualNet.Core.Test.Normalisation
         [Test]
         public void NormaliseAges_AllAgesAreSameValue_NormaliseToHalf()
         {
-            _data.ForEach(x => x.AgeAtDeath = 2);
-
-            var result = _data.NormaliseAges();
+            var result = _data.Select(x => D.UpdateAgeAtDeath(x, 2m)).NormaliseAges();
 
             Assert.IsTrue(result.All(x => x.AgeAtDeath == 0.5m));
-        }
-
-        private IEnumerable<DogProfile> SetUpData()
-        {
-            return new List<DogProfile>
-            {
-                new DogProfile {AgeAtDeath = 2, Sex = Sex.Male, AdultBodymass = 2, HouseholdIncome = 2, Locale = Locale.Rural},
-                new DogProfile {AgeAtDeath = 4, Sex = Sex.Male, AdultBodymass = 4, HouseholdIncome = 4, Locale = Locale.Suburban},
-                new DogProfile {AgeAtDeath = 10, Sex = Sex.Female, AdultBodymass = 10, HouseholdIncome = 10, Locale = Locale.Urban},
-            };
         }
     }
 }

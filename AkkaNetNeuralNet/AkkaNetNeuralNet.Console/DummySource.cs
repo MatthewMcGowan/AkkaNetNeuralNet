@@ -9,11 +9,11 @@ namespace AkkaNetNeuralNet.Console
         {
             return new List<DogProfile>
             {
-                new DogProfile{AgeAtDeath = 7, Sex = Sex.Male, Locale = Locale.Suburban, AdultBodymass = 120.2m, HouseholdIncome = 64000},
-                new DogProfile{AgeAtDeath = 11, Sex = Sex.Male, Locale = Locale.Rural, AdultBodymass = 24.6m, HouseholdIncome = 120000},
-                new DogProfile{AgeAtDeath = 14, Sex = Sex.Female, Locale = Locale.Rural, AdultBodymass = 28.1m, HouseholdIncome = 40000},
-                new DogProfile{AgeAtDeath = 8, Sex = Sex.Female, Locale = Locale.Urban, AdultBodymass = 4.4m, HouseholdIncome = 24000},
-                new DogProfile{AgeAtDeath = 6, Sex = Sex.Male, Locale = Locale.Urban, AdultBodymass = 45.7m, HouseholdIncome = 54000}
+                new DogProfile(7, Sex.Male, Locale.Suburban, 120.2m, 64000),
+                new DogProfile(11, Sex.Male, Locale.Rural, 24.6m, 120000),
+                new DogProfile(14, Sex.Female, Locale.Rural, 28.1m, 40000),
+                new DogProfile(8, Sex.Female, Locale.Urban, 4.4m, 24000),
+                new DogProfile(6, Sex.Male, Locale.Urban, 45.7m, 54000)
             };
         }
     }
