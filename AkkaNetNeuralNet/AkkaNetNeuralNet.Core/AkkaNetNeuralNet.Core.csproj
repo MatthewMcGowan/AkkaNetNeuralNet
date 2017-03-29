@@ -66,6 +66,7 @@
     <Compile Include="Model\Sex.cs" />
     <Compile Include="Normalisation\AdultBodymassNormalisation.cs" />
     <Compile Include="Normalisation\AgeAtDeathNormalisation.cs" />
+    <Compile Include="Normalisation\DogProfileDecimalNormalisation.cs" />
     <Compile Include="Normalisation\Normalisation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

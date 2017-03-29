@@ -81,6 +81,7 @@
     <Compile Include="Helpers\DogProfileHelpersTests.cs" />
     <Compile Include="Normalisation\AdultBodymassNormalisationTests.cs" />
     <Compile Include="Normalisation\AgeAtDeathNormalisationTests.cs" />
+    <Compile Include="Normalisation\HouseholdIncomeNormalisationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestData\DogProfileTestData.cs" />
   </ItemGroup>
